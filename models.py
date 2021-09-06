@@ -17,4 +17,4 @@ class Book(Base):
     price = Column('Price', Integer)
 
     def __repr__(self):
-        return f'Title:{self.title} Author: {Self.author} Published: {self.published_date} Price: {self.price}'
+        return f'Title:{self.title} Author: {self.author} Published: {self.published_date} Price: {self.price}'
