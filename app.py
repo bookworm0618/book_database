@@ -206,7 +206,20 @@ def app():
 
         elif choice == '4':
             #analyze books
-            pass
+            oldest_book = session.query(Book).order_by(Book.published_date).first()
+            newest_book = session.query(Book).order_by(Book.published_date.desc()).first()
+            total_books = session.query(Book).count()
+            python_books = session.query(Book).filter(Book.title.like('%Python%')).count()
+            print(python_books)
+            print(total_books)
+
+            print(f'''\n**** BOOK ANALYSIS ****
+                    \rOldest Book: {oldest_book}
+                    \rNewest Book: {newest_book}
+                    \rTotal Books: {total_books}
+                    \rNumber of python books: {python_books}
+                  ''')
+            input('\n Press enter to return to the main menu')
         else:
             print("Goodbye!")
             app_running = False
